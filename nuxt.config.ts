@@ -4,6 +4,9 @@ const isDev = process.env.NODE_ENV !== 'production'
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/google-fonts', 'nuxt-viewport'],
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
   viewport: {
     breakpoints: {
       desktop: 1921,

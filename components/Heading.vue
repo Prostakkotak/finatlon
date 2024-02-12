@@ -13,6 +13,7 @@
   align-items: center;
   gap: var(--layout-gap-sm);
   font-size: 2rem;
+  margin: var(--layout-gap-xxl) 0 var(--layout-gap) 0;
 
   &__decorator {
     width: 6px;

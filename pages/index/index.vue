@@ -4,7 +4,7 @@
 
     <Auth />
 
-    <Heading class="index-page__heading"> Этапы реализации проекта </Heading>
+    <Heading> Этапы реализации проекта </Heading>
 
     <div class="index-page__stages">
       <Card>
@@ -38,7 +38,7 @@
       </Card>
     </div>
 
-    <Heading class="index-page__heading"> Дополнительная информация </Heading>
+    <Heading> Дополнительная информация </Heading>
 
     <div class="index-page__stages">
       <Card>
@@ -84,7 +84,7 @@
 
     <div class="index-page__divided-space">
       <div>
-        <Heading class="index-page__heading"
+        <Heading
           ><i class="pi pi-align-left index-page__news-icon"></i> Последние
           Новости</Heading
         >
@@ -161,7 +161,7 @@
         </Card>
       </div>
       <div>
-        <Heading class="index-page__heading">Лента событий</Heading>
+        <Heading>Лента событий</Heading>
 
         <div class="index-page__events">
           <Card>
@@ -276,10 +276,6 @@ export default {
     &-icon {
       font-size: 1.5rem;
     }
-  }
-
-  &__heading {
-    margin: var(--layout-gap-xxl) 0 var(--layout-gap) 0;
   }
 
   &__stages {
