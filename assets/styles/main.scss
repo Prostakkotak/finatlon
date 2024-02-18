@@ -21,7 +21,6 @@ body {
   --xxl-font-size: 22px;
 
   /* Layout variables */
-  --header-height: 60px;
   --layout-padding-horizontal: 240px;
   --layout-padding-vertical: 30px;
   --sidebar-width: 120px;
@@ -93,8 +92,12 @@ body {
   @media (max-width: $breakpoint-tablet) {
     /* Layout */
     --sidebar-width: 1px;
-    --layout-padding-horizontal: 20px;
+    --layout-padding-horizontal: 5px;
   }
+}
+
+a {
+  text-decoration: none;
 }
 
 body {

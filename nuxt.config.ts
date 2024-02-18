@@ -3,7 +3,7 @@ const isDev = process.env.NODE_ENV !== 'production'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/google-fonts', 'nuxt-viewport'],
+  modules: ['@nuxtjs/google-fonts', 'nuxt-viewport', '@pinia/nuxt'],
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
   },

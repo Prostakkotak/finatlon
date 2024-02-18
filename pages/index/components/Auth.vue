@@ -18,11 +18,13 @@
         живем в рыночной экономике и являемся потребителями товаров и услуг.
       </p>
     </div>
-    <Button
-      class="app-action-block__button text-primary-bg border-radius-lg"
-      label="Регистрация/Личный кабинет >"
-      outlined
-    />
+    <a href="http://olimp-test.ru/">
+      <Button
+        class="app-action-block__button text-primary-bg border-radius-lg"
+        label="Регистрация/Личный кабинет >"
+        outlined
+      />
+    </a>
   </div>
 </template>
 <style scoped lang="scss">
@@ -31,6 +33,27 @@
     display: grid;
     grid-template-columns: 0.7fr 0.3fr;
     gap: var(--layout-gap-xxl);
+
+    a {
+      margin-left: auto;
+      display: flex;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 800px) {
+    &__auth {
+      grid-template-columns: 1fr;
+
+      a {
+        width: 100%;
+
+        button {
+          width: 100%;
+          height: 100px;
+        }
+      }
+    }
   }
 }
 </style>

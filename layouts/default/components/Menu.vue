@@ -22,6 +22,7 @@ export default {
           label: 'О проекте',
           class:
             [
+              'about',
               'docs',
               'materials',
               'lections',
@@ -33,41 +34,90 @@ export default {
               'media',
               'future',
             ].includes(this.page) && 'active',
+          command: () => {
+            this.openPage('about')
+          },
           items: [
             {
               label: 'Официальные документы',
+              class: this.page === 'docs' && 'active',
+              command: () => {
+                this.openPage('docs')
+              },
             },
             {
               label: 'Учебно-методические материалы',
+              class: ['extra-materials'].includes(this.page) && 'active',
+              command: () => {
+                this.openPage('learning-materials')
+              },
               items: [
                 {
                   label: 'Дополнительные материалы',
+                  class: this.page === 'extra-materials' && 'active',
+                  command: () => {
+                    this.openPage('extra-materials') && 'active'
+                  },
                 },
               ],
             },
             {
               label: 'Видеолекции',
+              class: this.page === 'materials' && 'active',
+              command: () => {
+                this.openPage('materials')
+              },
             },
             {
               label: 'Организаторы',
+              class: this.page === 'orgs' && 'active',
+
+              command: () => {
+                this.openPage('orgs')
+              },
             },
             {
               label: 'Партнеры',
+              class: this.page === 'partners' && 'active',
+
+              command: () => {
+                this.openPage('partners')
+              },
             },
             {
               label: 'Информационые партнеры',
+              class: this.page === 'info-partners' && 'active',
+              command: () => {
+                this.openPage('info-partners')
+              },
             },
             {
               label: 'История',
+              class: this.page === 'history' && 'active',
+              command: () => {
+                this.openPage('history')
+              },
             },
             {
               label: 'География проекта',
+              class: this.page === 'geografy' && 'active',
+              command: () => {
+                this.openPage('geografy')
+              },
             },
             {
               label: 'СМИ о нас',
+              class: this.page === 'media' && 'active',
+              command: () => {
+                this.openPage('media')
+              },
             },
             {
               label: 'Развитие проекта',
+              class: this.page === 'future' && 'active',
+              command: () => {
+                this.openPage('future')
+              },
             },
           ],
         },
@@ -87,6 +137,9 @@ export default {
         {
           label: 'Отзывы',
           class: this.page === 'reviews' && 'active',
+          command: () => {
+            this.openPage('reviews')
+          },
         },
         {
           label: 'Профориентация',
@@ -94,8 +147,14 @@ export default {
             {
               label: 'Льготы',
               class: this.page === 'fhelp' && 'active',
+              command: () => {
+                this.openPage('lgoty')
+              },
             },
           ],
+          command: () => {
+            this.openPage('proforientation')
+          },
         },
         {
           label: 'Для спонсоров',

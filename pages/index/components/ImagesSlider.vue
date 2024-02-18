@@ -18,7 +18,11 @@
           <div class="carousel-item__text-description border-radius">
             {{ slotProps.data.description }}
           </div>
-          <Button class="carousel-item__button" label="Подробнее" />
+          <Button
+            class="carousel-item__button"
+            label="Подробнее"
+            @click="slotProps.data.command()"
+          />
         </div>
       </div>
     </template>
@@ -35,6 +39,9 @@ export default {
           description:
             'Всероссийская олимпиада по финансовой грамотности, устойчивому развитию и защите прав потребителей финансовых услуг',
           image: '/studenti_2.jpg',
+          command: () => {
+            this.$router.push({ name: 'about' })
+          },
         },
         {
           id: 2,
@@ -42,6 +49,9 @@ export default {
           description:
             'по финансовой грамотности, финансовому рынку и защите прав потребителей финансовых услуг',
           image: '/studenti.jpg',
+          command: () => {
+            this.$router.push({ name: 'about' })
+          },
         },
       ]
     },
@@ -108,6 +118,12 @@ export default {
         user-select: none;
       }
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .carousel {
+    display: none;
   }
 }
 </style>

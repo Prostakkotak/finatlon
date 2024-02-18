@@ -9,16 +9,16 @@
       </div>
     </div>
 
-    <ul class="app-contacts__contacts-list">
-      <li class="app-contacts__contact">
+    <div class="app-contacts__contacts-list">
+      <div class="app-contacts__contact">
         <i class="pi pi-phone app-contacts__contact-icon" />
 
         <div>
           <div class="app-contacts__contact-text">+7 (495) 369-04-02 доб.5</div>
           <div class="app-contacts__contact-text">olimpiada@ifru.ru</div>
         </div>
-      </li>
-      <li class="app-contacts__contact">
+      </div>
+      <div class="app-contacts__contact">
         <i class="pi pi-home app-contacts__contact-icon" />
 
         <div>
@@ -27,8 +27,8 @@
             ул. Сущевский вал, д.16, стр.4.
           </div>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -83,6 +83,22 @@
         &:first-child {
           font-weight: 600;
         }
+      }
+    }
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+
+    @media (max-width: 600px) {
+      &__contacts-list {
+        margin-top: var(--layout-gap-xxl);
+        justify-content: center;
+      }
+
+      &__contact {
+        flex-direction: column;
+        text-align: center;
       }
     }
   }

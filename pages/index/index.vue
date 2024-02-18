@@ -71,7 +71,9 @@
         </template>
       </Card>
       <Card>
-        <template #title> Образовательный центр </template>
+        <template #title>
+          <a href="https://ifru.ru/">Образовательный центр</a>
+        </template>
 
         <template #header>
           <img src="@/static/graduation-hat.png" alt="" />
@@ -81,6 +83,8 @@
         </template>
       </Card>
     </div>
+
+    <PartnersSlider />
 
     <div class="index-page__divided-space">
       <div>
@@ -227,11 +231,13 @@
 <script>
 import Auth from './components/Auth.vue'
 import ImagesSlider from './components/ImagesSlider.vue'
+import PartnersSlider from './components/PartnersSlider.vue'
 
 export default {
   components: {
     Auth,
     ImagesSlider,
+    PartnersSlider,
   },
 }
 </script>
@@ -293,6 +299,23 @@ export default {
       &:hover {
         max-height: 100vh;
       }
+    }
+  }
+
+  @media (max-width: 800px) {
+    &__divided-space {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &__news {
+      grid-template-columns: 1fr;
+    }
+
+    &__stages {
+      grid-template-columns: 1fr;
     }
   }
 }

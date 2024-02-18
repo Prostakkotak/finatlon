@@ -32,7 +32,6 @@ export default {
   padding: 0 var(--layout-padding-horizontal);
 
   &-wrap {
-    margin: var(--header-height) 0;
     border-radius: 30px;
   }
 }

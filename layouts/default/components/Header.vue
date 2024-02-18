@@ -10,42 +10,62 @@
       <Divider layout="vertical" />
 
       <div class="app-header__nav-buttons">
-        <i class="pi pi-telegram" />
-        <i class="pi pi-facebook" />
+        <a target="_blank" href="https://www.facebook.com/olimpiadaifru/">
+          <i class="pi pi-facebook" />
+        </a>
+
+        <a
+          target="_blank"
+          class="app-header__icon"
+          href="https://vk.com/olimpiadaifru"
+          ><Vk
+        /></a>
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import Vk from '~/static/vk.vue'
+
 export default {
   computed: {
     menu() {
       return [
         {
           label: 'Организаторы',
+          command: () => {
+            this.$router.push({ name: 'orgs' })
+          },
         },
         {
           label: 'Партнеры',
+          command: () => {
+            this.$router.push({ name: 'partners' })
+          },
         },
         {
           label: 'Информационные партнеры',
+          command: () => {
+            this.$router.push({ name: 'info-partners' })
+          },
         },
         {
           label: 'Реквизиты',
+          command: () => {
+            this.$router.push({ name: 'requisits' })
+          },
         },
       ]
     },
   },
+  components: { Vk },
 }
 </script>
 <style scoped lang="scss">
 .app {
   &-header {
-    top: 0;
-    position: fixed;
-    width: calc(100% - var(--layout-padding-horizontal) * 2);
-    height: var(--header-height);
+    width: calc(100vw - var(--layout-padding-horizontal) * 2);
     z-index: 1000;
     padding: 0 var(--layout-gap);
     display: flex;
@@ -58,9 +78,19 @@ export default {
     *,
     :deep * {
       text-wrap: nowrap;
-      flex-wrap: nowrap;
-      background: var(--primary-color);
+      background: transparent;
       color: var(--primary-color-text);
+    }
+
+    &__icon {
+      :deep svg {
+        height: calc(var(--font-size) * 2.1);
+        width: calc(var(--font-size) * 2.1);
+
+        path {
+          fill: #fff;
+        }
+      }
     }
 
     &__nav {
@@ -77,9 +107,16 @@ export default {
       &-buttons {
         display: flex;
         gap: var(--layout-gap-sm);
+        align-items: center;
 
         i {
           font-size: 1.8rem;
+        }
+
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           cursor: pointer;
           transition: var(--transition-duration);
 
@@ -91,6 +128,41 @@ export default {
 
       &-menu {
         border: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .app {
+    &-header {
+      flex-direction: row-reverse;
+    }
+  }
+
+  :deep {
+    .p-menubar-root-list {
+      background: var(--primary-color);
+      border: none;
+      border-radius: var(--border-radius);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .app {
+    &-header {
+      height: auto;
+      flex-direction: column;
+      align-items: start;
+
+      &__nav-status {
+        flex-direction: column;
+        align-items: start;
+
+        :deep * {
+          padding: 0;
+        }
       }
     }
   }
