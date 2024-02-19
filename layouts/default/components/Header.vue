@@ -2,7 +2,7 @@
   <header class="app-header">
     <div class="app-header__nav-status">
       <div><Tag value="Статус проекта" />:</div>
-      <div>Отборочный тур с 26.12 по 20.01</div>
+      <div>{{ $store.main.elements.currentStage?.[0]content }}</div>
     </div>
     <div class="app-header__nav">
       <Menubar :model="menu" class="app-header__nav-menu" />

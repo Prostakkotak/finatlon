@@ -3,6 +3,17 @@
     <NuxtPage />
   </NuxtLayout>
 </template>
+
+<script>
+import API from '~/api/api'
+
+export default {
+  async created() {
+    this.$store.main.setElements(await API.getElements())
+  },
+}
+</script>
+
 <style>
 .page-enter-active,
 .page-leave-active {

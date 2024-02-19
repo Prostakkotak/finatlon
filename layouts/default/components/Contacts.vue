@@ -14,17 +14,23 @@
         <i class="pi pi-phone app-contacts__contact-icon" />
 
         <div>
-          <div class="app-contacts__contact-text">+7 (495) 369-04-02 доб.5</div>
-          <div class="app-contacts__contact-text">olimpiada@ifru.ru</div>
+          <div class="app-contacts__contact-text">
+            {{ $store.main.elements.contactsHead?.[0].content?.[0] }}
+          </div>
+          <div class="app-contacts__contact-text">
+            {{ $store.main.elements.contactsHead?.[0].content?.[1] }}
+          </div>
         </div>
       </div>
       <div class="app-contacts__contact">
         <i class="pi pi-home app-contacts__contact-icon" />
 
         <div>
-          <div class="app-contacts__contact-text">107018 Москва</div>
           <div class="app-contacts__contact-text">
-            ул. Сущевский вал, д.16, стр.4.
+            {{ $store.main.elements.contactsHead?.[1].content?.[0] }}
+          </div>
+          <div class="app-contacts__contact-text">
+            {{ $store.main.elements.contactsHead?.[1].content?.[1] }}
           </div>
         </div>
       </div>
