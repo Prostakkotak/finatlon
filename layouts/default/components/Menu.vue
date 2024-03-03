@@ -123,23 +123,23 @@ export default {
         },
         {
           label: 'Новости',
+          class: ['events', 'news'].includes(this.page) && 'active',
           items: [
             {
               label: 'Новости',
               class: this.page === 'news' && 'active',
+              command: () => {
+                this.openPage('news')
+              },
             },
             {
               label: 'События',
               class: this.page === 'events' && 'active',
+              command: () => {
+                this.openPage('events')
+              },
             },
           ],
-        },
-        {
-          label: 'Отзывы',
-          class: this.page === 'reviews' && 'active',
-          command: () => {
-            this.openPage('reviews')
-          },
         },
         {
           label: 'Профориентация',

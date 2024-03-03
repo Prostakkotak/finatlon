@@ -20,15 +20,9 @@
 export default {
   computed: {
     carouselVals() {
-      return [
-        { image: '/club.png' },
-        { image: '/finatlon.png' },
-        { image: '/fond.png' },
-        { image: '/fps.png' },
-        { image: '/ifru.png' },
-        { image: '/moex.png' },
-        { image: '/vss.jpg' },
-      ]
+      return this.$store.main.elements.partnerLogos?.map((logo) => ({
+        image: logo.content.content,
+      }))
     },
     responsiveOptions() {
       return [

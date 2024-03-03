@@ -1,7 +1,7 @@
 <template>
   <div class="app-contacts">
     <div class="app-contacts__logo-wrap">
-      <img src="@/static/logo.png" alt="Logo" class="app-header__logo" />
+      <img src="/finatlon.png" alt="Logo" class="app-header__logo" />
 
       <div class="app-contacts__logo-text">
         ВСЕРОССИЙСКАЯ ОЛИМПИАДА ПО ФИНАНСОВОЙ ГРАМОТНОСТИ, УСТОЙЧИВОМУ РАЗВИТИЮ
@@ -15,10 +15,10 @@
 
         <div>
           <div class="app-contacts__contact-text">
-            {{ $store.main.elements.contactsHead?.[0].content?.[0] }}
+            {{ data.contactsHead.telephone }}
           </div>
           <div class="app-contacts__contact-text">
-            {{ $store.main.elements.contactsHead?.[0].content?.[1] }}
+            {{ data.contactsHead.email }}
           </div>
         </div>
       </div>
@@ -27,10 +27,10 @@
 
         <div>
           <div class="app-contacts__contact-text">
-            {{ $store.main.elements.contactsHead?.[1].content?.[0] }}
+            {{ data.contactsHead.postIndex }}
           </div>
           <div class="app-contacts__contact-text">
-            {{ $store.main.elements.contactsHead?.[1].content?.[1] }}
+            {{ data.contactsHead.address }}
           </div>
         </div>
       </div>
@@ -38,7 +38,20 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  computed: {
+    data() {
+      const elements = this.$store.main.elements
+
+      return {
+        contactsHead: elements.contactsHead?.[0]?.content ?? {},
+        currentStage: elements.currentStage?.[0]?.content ?? {},
+      }
+    },
+  },
+}
+</script>
 <style scoped lang="scss">
 .app {
   &-contacts {
@@ -62,7 +75,7 @@
 
       &-text {
         max-width: 30ch;
-        font-size: 0.85rem;
+        font-size: 0.65rem;
       }
     }
 

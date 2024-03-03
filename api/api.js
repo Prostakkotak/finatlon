@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default class API {
   static get baseurl() {
-    return 'https://localhost:8001'
+    return 'http://localhost:8001'
   }
 
   static async getElements() {

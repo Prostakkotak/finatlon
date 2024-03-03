@@ -18,13 +18,13 @@
     "eslint-plugin-prettier": "^5.0.0",
     "nuxt-viewport": "^2.0.6",
     "prettier": "^3.0.2",
-    "sass": "^1.66.1"
+    "sass": "^1.66.1",
+    "nuxt": "^3.7.0"
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.0.2",
     "@pinia/nuxt": "^0.5.1",
     "axios": "^1.6.7",
-    "nuxt": "^3.10.1",
     "pinia": "^2.1.7",
     "primeicons": "^6.0.1",
     "primevue": "^3.32.2",

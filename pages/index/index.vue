@@ -7,33 +7,11 @@
     <Heading> Этапы реализации проекта </Heading>
 
     <div class="index-page__stages">
-      <Card>
-        <template #title> Регистрация </template>
-        <template #subtitle> Регистрация </template>
+      <Card v-for="stage in data.stages" :key="stage.name">
+        <template #title>{{ stage.name }}</template>
+        <template #subtitle> {{ stage.content.title }} </template>
         <template #content>
-          Регистрация участников осуществляется на сайте Олимпиады «Финатлон для
-          старшеклассников» (olimp-test.ru) с 1 сентября 2023г. по 1 декабря
-          2023г.
-        </template>
-      </Card>
-      <Card>
-        <template #title> Первый Этап </template>
-        <template #subtitle> ПЕРВЫЙ ЭТАП. ОТБОРОЧНЫЙ </template>
-        <template #content>
-          Проводится в форме on-line тестирования с применением дистанционных
-          образовательных технологий в декабре 2023г. По завершении регистрации
-          участников. On-line тестирование проводится в личном кабинете
-          зарегистрированного участника Олимпиады
-        </template>
-      </Card>
-      <Card>
-        <template #title> Второй Этап </template>
-        <template #subtitle> ВТОРОЙ ЭТАП. ФИНАЛ </template>
-        <template #content>
-          Проводится в один и тот же день во всех местах его проведения в очной
-          форме. Февраль-март 2023 Состоит из трех туров: 1.Творческое эссе по
-          предложенной Оргкомитетом тематике, Письменная работа – 2. Решение
-          задач и 3. Кейсов.
+          {{ stage.content.text }}
         </template>
       </Card>
     </div>
@@ -94,36 +72,14 @@
         >
 
         <div class="index-page__news">
-          <Card>
+          <Card v-for="news in data.news.slice(-4)" :key="news.name">
             <template #header>
-              <img src="@/static/news01.png" alt="" />
+              <img :src="news.content.content" alt="" />
             </template>
-            <template #title> Банки вернут украденные деньги </template>
-            <template #subtitle> ОТР Отражение, эфир 09.01.2024 </template>
+            <template #title> {{ news.content.title }} </template>
+            <template #subtitle> {{ news.content.source }} </template>
             <template #content>
-              <p>Игорь Костиков</p>
-
-              <p>доктор экономических наук, председатель «Финпотребсоюза»</p>
-
-              <p>
-                Банки начнут возвращать деньги, украденные у их клиентов
-                мошенниками. К этому кредитно-финансовые учреждения обяжет новый
-                закон. Когда он вступает в силу и как будет работать?
-              </p>
-            </template>
-          </Card>
-          <Card>
-            <template #title>
-              Продление срока регистрации участников Олимпиады «Финатлон для
-              старшеклассников» до 20 января 2024 г.
-            </template>
-            <template #subtitle> 28 Декабря, 2023 </template>
-            <template #content>
-              Оргкомитет XIX Всероссийской олимпиады по финансовой грамотности,
-              устойчивому развитию и защите прав потребителей финансовых услуг
-              Финатлон для старшеклассников принял решение о продлении срока
-              регистрации участников Олимпиады сезона 2023-2024 учебного года до
-              20 января 2024 г.
+              <div v-html="news.content.html"></div>
             </template>
           </Card>
         </div>
@@ -168,59 +124,26 @@
         <Heading>Лента событий</Heading>
 
         <div class="index-page__events">
-          <Card>
+          <Card v-for="event in data.events.slice(-4)" :key="event.name">
             <template #header>
               <iframe
+                v-if="event.content.content.includes('rutube')"
                 loading="lazy"
-                src="https://rutube.ru/play/embed/7ac5cf98d61d939317a143d3d26efdd4"
+                :src="event.content.content"
                 frameborder="0"
+                allowfullscreen="allowfullscreen"
+              ></iframe>
+              <iframe
+                v-else
+                loading="lazy"
+                :src="event.content.content"
+                frameborder="0"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen="allowfullscreen"
               ></iframe>
             </template>
             <template #title>
-              Школьники Кузбасса об участии в олимпиаде «Финатлон для
-              старшеклассников
-            </template>
-          </Card>
-          <Card>
-            <template #header>
-              <iframe
-                loading="lazy"
-                src="https://rutube.ru/play/embed/b59037f6ad1e4b2a8538ace9e0c55a1a"
-                frameborder="0"
-                allowfullscreen="allowfullscreen"
-              ></iframe>
-            </template>
-            <template #title>
-              «Личные финансы». Региональный финал Всероссийской олимпиады по
-              финансовой грамотности для старшеклассников в Ярославле
-            </template>
-          </Card>
-          <Card>
-            <template #header>
-              <iframe
-                loading="lazy"
-                src="https://rutube.ru/play/embed/b59037f6ad1e4b2a8538ace9e0c55a1a"
-                frameborder="0"
-                allowfullscreen="allowfullscreen"
-              ></iframe>
-            </template>
-            <template #title>
-              РБК Новости башкортостана эфир 20.02.2023
-            </template>
-          </Card>
-          <Card>
-            <template #header>
-              <iframe
-                loading="lazy"
-                src="https://rutube.ru/play/embed/ada9d63948d07f3a82f26c28100a8439"
-                frameborder="0"
-                allowfullscreen="allowfullscreen"
-              ></iframe>
-            </template>
-            <template #title>
-              Интервью победителя XVI Олимпиады «Финатлон для старшеклассников»
-              2020-2021г.г. — Маслова Владислава
+              {{ event.content.desc }}
             </template>
           </Card>
         </div>
@@ -238,6 +161,16 @@ export default {
     Auth,
     ImagesSlider,
     PartnersSlider,
+  },
+  computed: {
+    data() {
+      const elements = this.$store.main.elements
+      return {
+        stages: elements.stages ?? [],
+        news: elements.news ?? [],
+        events: elements.events ?? [],
+      }
+    },
   },
 }
 </script>

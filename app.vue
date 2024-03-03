@@ -9,7 +9,7 @@ import API from '~/api/api'
 
 export default {
   async created() {
-    this.$store.main.setElements(await API.getElements())
+    this.$store.main.setElements((await API.getElements()).data)
   },
 }
 </script>
